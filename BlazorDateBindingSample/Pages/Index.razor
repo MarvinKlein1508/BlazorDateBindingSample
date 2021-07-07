@@ -1,0 +1,31 @@
+﻿@page "/"
+
+
+<p>Value form component (EditForm)</p>
+<EditForm Model="Date">
+    <InputDate class="form-control" @bind-Value="Date" />
+</EditForm>
+
+<p>With custom Model (EditForm)</p>
+<EditForm Model="Input">
+    <InputDate class="form-control" @bind-Value="Input.Date" />
+</EditForm>
+
+<p>Value form component (No EditForm)</p>
+<input type="date" class="form-control" @bind="Date" />
+
+
+
+
+@code {
+
+    public DateTime Date { get; set; }
+
+    public TestModel Input { get; set; } = new TestModel();
+
+    public class TestModel
+    {
+        public DateTime Date { get; set; }
+    }
+
+}
